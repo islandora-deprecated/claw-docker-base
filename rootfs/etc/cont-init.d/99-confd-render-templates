@@ -1,0 +1,28 @@
+#!/usr/bin/execlineb -P
+# -*- mode: sh -*-
+# vi: set ft=sh:
+with-contenv
+multisubstitute
+{
+  import -i ETCD_HOST
+  import -i ETCD_HOST_PORT
+  import -i ETCD_CONNECTION_TIMEOUT
+}
+foreground {
+  # If either host or port isn't set exit and don't modify the Environment.
+  ifelse -X {
+    foreground { echo "Looking for etcd server..." }
+    redirfd -w 2 /dev/null
+    timeout -t ${ETCD_CONNECTION_TIMEOUT}
+    wait-for-open-port ${ETCD_HOST} ${ETCD_HOST_PORT}
+  } {
+    backtick ETCD_HOST_IP {
+      pipeline {
+        getent hosts ${ETCD_HOST}
+      }
+      awk "{ print $1 }"
+    }
+    import -nu ETCD_HOST_IP
+    confd -onetime -backend etcd -node ${ETCD_HOST_IP}:${ETCD_HOST_PORT}
+  } confd -onetime -onetime -backend env
+}

@@ -1,0 +1,17 @@
+#!/usr/bin/execlineb -P
+# -*- mode: sh -*-
+# vi: set ft=sh:
+with-contenv
+multisubstitute
+{
+  import -D "etcd" ETCD_HOST
+  import -D "2379" ETCD_HOST_PORT
+  import -D 0 ETCD_CONNECTION_TIMEOUT
+}
+foreground {
+  s6-env -i
+  ETCD_HOST=$ETCD_HOST
+  ETCD_HOST_PORT=$ETCD_HOST_PORT
+  ETCD_CONNECTION_TIMEOUT=$ETCD_CONNECTION_TIMEOUT
+  s6-dumpenv -- /var/run/s6/container_environment
+}

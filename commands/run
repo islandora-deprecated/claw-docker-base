@@ -1,0 +1,3 @@
+#!/bin/bash
+CMD=${1:-ash}
+docker run -it --rm islandora-claw/base $CMD
