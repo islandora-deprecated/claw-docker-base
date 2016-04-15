@@ -1,7 +1,7 @@
 FROM alpine:3.3
 MAINTAINER Nigel Banks <nigel.g.banks@gmail.com>
 
-LABEL "License"="GPLv3" \
+LABEL "License"="MIT" \
       "Version"="0.0.1"
 
 ARG S6_VERSION="1.17.1.2"
