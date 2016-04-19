@@ -1,9 +1,9 @@
 # Islandora CLAW: Base Docker Image
 
-[![Docker Stars](https://img.shields.io/docker/stars/islandora-claw/base.svg)](https://hub.docker.com/r/islandora-claw/base/)
-[![Docker Pulls](https://img.shields.io/docker/pulls/islandora-claw/base.svg)](https://hub.docker.com/r/islandora-claw/base/)
-[![Image Size](https://img.shields.io/imagelayers/image-size/islandora-claw/base/latest.svg)](https://imagelayers.io/?images=islandora-claw/base:latest)
-[![Image Layers](https://img.shields.io/imagelayers/layers/islandora-claw/base/latest.svg)](https://imagelayers.io/?images=islandora-claw/base:latest)
+[![Docker Stars](https://img.shields.io/docker/stars/islandora/claw-base.svg)](https://hub.docker.com/r/islandora/claw-base/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/islandora/claw-base.svg)](https://hub.docker.com/r/islandora/claw-base/)
+[![Image Size](https://img.shields.io/imagelayers/image-size/islandora/claw-base/latest.svg)](https://imagelayers.io/?images=islandora/claw-base:latest)
+[![Image Layers](https://img.shields.io/imagelayers/layers/islandora/claw-base/latest.svg)](https://imagelayers.io/?images=islandora/claw-base:latest)
 
 ### Introduction
 
@@ -26,7 +26,7 @@ built, based on [Alpine Linux](http://alpinelinux.org/).
 
 **Example:**
 ```bash
-docker build -t islandora-claw/base .
+docker build -t islandora/claw-base .
 ```
 
 ### Environment Variables
@@ -47,7 +47,7 @@ information instead of environment variables.
 
 **Example (foreground, auto-remove, interactive shell):**
 ```bash
-docker run --rm -ti islandora-claw/base ash
+docker run --rm -ti islandora/claw-base ash
 ```
 
 ### Commands
